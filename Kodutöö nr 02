@@ -1,0 +1,80 @@
+#Leena Jaaniste ITT20
+#09.02.2021
+#Kodutöö nr 02
+
+
+#2.5 Õunad
+
+from random import randint
+
+pöialpoisse = (0, 7)
+
+pöialpoisid = int(input("Mitu pöialpoissi tahab õunu? ")) 
+
+i = 1
+õunte_arv = 0
+
+while i <= pöialpoisid:
+    õunad = randint(1, 2)
+    print(õunad)
+    õunte_arv += õunad
+    i += 1
+jääk = 14 - õunte_arv
+    
+print("Lumivalgekesele jäi "+str(jääk))
+
+
+
+#2.4 Täringud
+
+from random import randint
+
+täringute_arv = int(input("Täringute arv: " ))
+
+i = 0
+while i < täringute_arv:
+    print(str(randint(1, 6)))
+    i += 1
+
+
+#2.3 Murelikud lapsevanemad
+
+ringide_arv = int(input("Sisesta ringide arv: "))
+
+arv = 2
+summa = 0 
+
+while arv <= ringide_arv:
+    summa += arv
+    arv += 2
+
+print("Porgandite koguarv on",summa)
+
+          
+#2.2 Äratus
+
+äratus = int(input("Sisestage, mitu korda äratada: "))
+i = 0
+while i < äratus:
+    print("Tõuse ja sära!")
+    i += 1
+    
+
+#2.1 Bussid
+
+inimeste_arv = int(input("Inimeste arv: "))
+kohtade_arv = int(input("Kohtade arv: "))
+bussid = round(inimeste_arv / kohtade_arv)
+
+if (bussid <= 0):
+    print("Busse vaja: " + str(1))
+else:
+    print("Busse vaja: " + str(bussid))
+    
+jääk = round(inimeste_arv % kohtade_arv)
+
+if (jääk == 0):
+    print("Viimases bussis inimesi: " + str(kohtade_arv))
+else:
+    print("Viimases bussis inimesi: " + str(jääk))
+
