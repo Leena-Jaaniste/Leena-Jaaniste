@@ -1,0 +1,71 @@
+#Tahvli juurde
+
+from datetime import *
+
+failinimi = input("Sisestage failinimi: ")
+fail = open(failinimi, encoding="UTF-8")
+vastajad = []
+
+for rida in fail:
+    vastajad.append(rida)
+fail.close()
+
+paev = datetime.now().day
+
+print("Vastama tuleb: " + vastajad[paev-1])
+    
+    
+#Jukebox
+
+muusikapalad = input(" jukebox.txt\n 80ndad.txt\n eesti_muusika.txt\n edm.txt\nPalun sisestage failinimi: ")
+
+fail = open(muusikapalad, encoding="UTF-8")
+laulud = []
+i = 1
+for rida in fail:
+    laulud.append(rida)
+    jrk = str(i) + "." + rida
+    print(jrk, end="")
+    i += 1    
+fail.close()
+
+muusikapalad2 = int(input("\n\nValige laulu järjekorranumber: "))
+print(laulud[muusikapalad2-1])
+
+
+#Sissetulekud
+
+fail = open("konto.txt", encoding="UTF-8")
+sissetulek = []
+for rida in fail:
+    if float(rida) > 0:
+        sissetulek.append(float(rida))
+fail.close()
+
+for posArv in sissetulek:
+    print(posArv)
+
+    
+#Jänesevanemate mure
+
+ringide_arv = int(input("Sisesta ringide arv: "))
+summa = 0
+for i in range(1, ringide_arv+1):
+    if i%2==0:
+        summa += i
+    
+print("Porgandite koguarv on",summa)
+
+
+#Ülikooli vastuvõetud
+
+fail = open("rebased.txt", encoding="UTF-8")
+vastuvoetud = []
+for rida in fail:
+    vastuvoetud.append(int(rida))
+fail.close()
+
+aasta = int(input("Palun sisestage, millise aasta andmeid vajate: "))   
+aastad = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+opilased = vastuvoetud[aastad.index(aasta)]
+print(str(aasta) + ". aastal oli vastuvõetuid" ,opilased)
