@@ -2,7 +2,7 @@
 
 from datetime import *
 
-failinimi = input("Sisestage failinimi: ")
+failinimi = input("nimekiri.txt\nSisestage failinimi: ") # nimekiri.txt
 fail = open(failinimi, encoding="UTF-8")
 vastajad = []
 
