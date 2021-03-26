@@ -1,0 +1,61 @@
+# Tkinter - Ülesanne05
+# 26.03.2021
+
+from tkinter import *
+from tkinter import ttk
+
+#Loome akna ja sellese seaded
+aken = Tk()
+aken.title("KM-Kalkulaator")
+aken.geometry("370x250")
+aken.resizable(0,0)
+
+FONT = "Tahoma 12"
+
+def teeMidagi():
+    hind = int(sisestus.get())
+    km = rbValue.get()
+    hindKM = hind+hind*km
+    hindKast.config(text=str(hindKM)+"€")
+    kmKast.config(text=str(km)+"%")
+    print(hind)
+    print(km)
+    print(hindKM)
+   
+#Rida1
+   
+tekstikast = Label(aken, text="Hind käibemaksuta", width=20, font=FONT, anchor="w")
+tekstikast.grid(row=0, column=0, pady=(20,0))
+sisestus = Entry(aken, width=20, font=FONT)
+sisestus.grid(row=0, column=1, pady=(20,0))
+
+#Rida2
+tekstikast = Label(aken, text="Käibemaksumäär", width=20, font=FONT, anchor="w")
+tekstikast.grid(row=1, column=0)
+rbValue=DoubleVar()    #ühine muutuja väärtuste hoidmiseks
+vk1 = Radiobutton(aken, text="9%", value=0.09, variable=rbValue, font=FONT)
+vk1.grid(row=1, column=1, sticky="w")
+vk2 = Radiobutton(aken, text="20%", value=0.20, variable=rbValue, font=FONT)
+vk2.grid(row=2, column=1, sticky="w" )
+
+#Joon
+separator = ttk.Separator(aken, orient="horizontal")
+separator.grid(row=3, column=0, columnspan=2, sticky="ew", padx=20)
+
+#Rida3
+tekstikast = Label(aken, text="Käibemaksumäär", width=20, font=FONT, anchor="w")
+tekstikast.grid(row=4, column=0)
+kmKast = Label(aken, text="0.00%", width=20, font=FONT, anchor="w")
+kmKast.grid(row=4, column=1)
+
+#Rida4
+tekstikast = Label(aken, text="Hind käibemaksuga:", width=20, font=FONT, anchor="w")
+tekstikast.grid(row=5, column=0)
+hindKast = Label(aken, text="0.00€", width=20, font=FONT, anchor="w")
+hindKast.grid(row=5, column=1)
+
+#Rida5
+nupp = Button(aken, text="OK", width=10, font="Tahoma 12", command=teeMidagi)
+nupp.grid(row=6, column=1, padx=2, pady=20, sticky="e")
+
+aken.mainloop()
