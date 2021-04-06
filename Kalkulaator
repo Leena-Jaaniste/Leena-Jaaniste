@@ -1,0 +1,71 @@
+#Kodutöö nr 5
+#06.04.2021
+#Leena Jaaniste ITT20
+
+
+# Kalkulaator
+
+from tkinter import *
+
+#Funktsioonid
+avaldis = ""
+
+def press(num):
+    global avaldis
+    avaldis = avaldis + str(num)
+    muutujad.set(avaldis)
+
+def equalpress():   
+    try:
+        global avaldis
+        kokku = str(eval(avaldis))
+        muutujad.set(kokku)
+        avaldis = ""
+ 
+    except: 
+        muutujad.set(" Error ")
+        avaldis = ""
+
+def clear():
+    global avaldis
+    avaldis = ""
+    muutujad.set("")
+ 
+#Akna seaded
+if __name__ == "__main__":
+    aken = Tk()
+    aken.configure(background="light green")
+    aken.title("Kalkulaator")
+    aken.geometry("262x150")
+    aken.resizable(0,0)
+    
+#Sisestusväli
+    muutujad = StringVar()
+    sisestus = Entry(aken, textvariable=muutujad).grid(columnspan=4, ipadx=70)
+
+#Nupud
+    button1 = Button(aken, text="1", fg="black", bg="yellow", command=lambda: press(1), height=1, width=7).grid(row=2, column=0)
+    button2 = Button(aken, text="2", fg="black", bg="yellow", command=lambda: press(2), height=1, width=7).grid(row=2, column=1)
+    button3 = Button(aken, text="3", fg="black", bg="yellow", command=lambda: press(3), height=1, width=7).grid(row=2, column=2)
+ 
+    button4 = Button(aken, text="4", fg="black", bg="yellow", command=lambda: press(4), height=1, width=7).grid(row=3, column=0)
+    button5 = Button(aken, text="5", fg="black", bg="yellow", command=lambda: press(5), height=1, width=7).grid(row=3, column=1)
+    button6 = Button(aken, text="6", fg="black", bg="yellow", command=lambda: press(6), height=1, width=7).grid(row=3, column=2)
+ 
+    button7 = Button(aken, text="7", fg="black", bg="yellow", command=lambda: press(7), height=1, width=7).grid(row=4, column=0)
+    button8 = Button(aken, text="8", fg="black", bg="yellow", command=lambda: press(8), height=1, width=7).grid(row=4, column=1)
+    button9 = Button(aken, text="9", fg="black", bg="yellow", command=lambda: press(9), height=1, width=7).grid(row=4, column=2)
+ 
+    button0 = Button(aken, text="0", fg="black", bg="yellow", command=lambda: press(0), height=1, width=7).grid(row=5, column=0)
+    pluss = Button(aken, text="+", fg="black", bg="yellow",command=lambda: press("+"), height=1, width=7).grid(row=2, column=3)
+    miinus = Button(aken, text="-", fg="black", bg="yellow", command=lambda: press("-"), height=1, width=7).grid(row=3, column=3)
+ 
+    multiply = Button(aken, text="*", fg="black", bg="yellow", command=lambda: press("*"), height=1, width=7).grid(row=4, column=3)
+    divide = Button(aken, text="/", fg="black", bg="yellow", command=lambda: press("/"), height=1, width=7).grid(row=5, column=3)
+    equal = Button(aken, text="=", fg="black", bg="yellow", command=equalpress, height=1, width=7).grid(row=5, column=2)
+    decimal = Button(aken, text=".", fg="black", bg="yellow", command=lambda: press("."), height=1, width=7).grid(row=5, column=1)
+ 
+    clear= Button(aken, text="Clear", fg="black", bg="yellow", command=clear, height=1, width=7).grid(row=6, column=0)
+    
+    
+    aken.mainloop()
